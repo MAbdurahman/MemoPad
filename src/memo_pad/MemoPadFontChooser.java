@@ -99,7 +99,7 @@ public class MemoPadFontChooser extends JComponent {
 
     /**
      * MemoPadFontChooser Constructor - Creates an instance of MemoPadFontChooser
-     * @param String[]
+     * @param fontSizes - String[] of font sizes
      */
     public MemoPadFontChooser(String[] fontSizes) {
         if (fontSizes == null) {
@@ -260,7 +260,6 @@ public class MemoPadFontChooser extends JComponent {
     /**
      * Set the family name of the selected font.
      * @param name the family name of the selected font.
-     * @see getSelectedFontFamily
      */
     public void setSelectedFontFamily(String name) {
         String[] names = getFontFamilies();
@@ -330,7 +329,6 @@ public class MemoPadFontChooser extends JComponent {
      * Show font selection dialog.
      * @param parent Dialog's Parent component.
      * @return OK_OPTION, CANCEL_OPTION or ERROR_OPTION
-     * @see #OK_OPTION
      * @see #CANCEL_OPTION
      * @see #ERROR_OPTION
      */
@@ -363,7 +361,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * valueChanged Method -
-         * @param ListSelectionEvent
+         * @param e - the ListSelectionEvent
          */
         @Override
         public void valueChanged(ListSelectionEvent e) {
@@ -393,7 +391,7 @@ public class MemoPadFontChooser extends JComponent {
         }
         /**
          * focusGained Method -
-         * @param FocusEvent -
+         * @param e - FocusEvent
          */
         @Override
         public void focusGained(FocusEvent e) {
@@ -401,7 +399,7 @@ public class MemoPadFontChooser extends JComponent {
         }
         /**
          * focusLost Method -
-         * @param FocusEvent -
+         * @param e - FocusEvent
          */
         @Override
         public void focusLost(FocusEvent e) {
@@ -420,7 +418,7 @@ public class MemoPadFontChooser extends JComponent {
         }
         /**
          * keyPressed Method -
-         * @param KeyEvent - 
+         * @param e - the KeyEvent of key being pressed
          */
         @Override
         public void keyPressed(KeyEvent e) {
@@ -454,7 +452,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * ListSearchTextFieldDocumentHandler Constructor - Creates an instance of this Handler
-         * @param JList -
+         * @param targetList - the JList
          */
         public ListSearchTextFieldDocumentHandler(JList targetList) {
             this.targetList = targetList;
@@ -462,7 +460,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * insertUpdate Method - 
-         * @param DocumentEvent - 
+         * @param de - the DocumentEvent
          */
         @Override
         public void insertUpdate(DocumentEvent de) {
@@ -471,7 +469,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * removeUpdate Method -
-         * @param DocumentEvent -
+         * @param de - the DocumentEvent
          */
         @Override
         public void removeUpdate(DocumentEvent de) {
@@ -480,7 +478,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * changedUpdate Method - 
-         * @param DocumentEvent -
+         * @param de - the DocumentEvent
          */
         @Override
         public void changedUpdate(DocumentEvent de) {
@@ -489,7 +487,7 @@ public class MemoPadFontChooser extends JComponent {
         
         /**
          * update Method -
-         * @param DocumentEvent -
+         * @param de - the DocumentEvent
          */
         private void update(DocumentEvent de) {
             String newValue = "";
@@ -527,7 +525,6 @@ public class MemoPadFontChooser extends JComponent {
             }
             /**
              * run Method -
-             * @param Void 
              */
             @Override
             public void run() {
@@ -550,7 +547,7 @@ public class MemoPadFontChooser extends JComponent {
         }
         /**
          * actionPerformed Method -
-         * @param ActionEvent  
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -575,7 +572,7 @@ public class MemoPadFontChooser extends JComponent {
         }
         /**
          * actionPerformed Method -
-         * @param ActionEvent
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -586,7 +583,7 @@ public class MemoPadFontChooser extends JComponent {
 
     protected JDialog createDialog(Component parent) {
         Frame frame = parent instanceof Frame ? (Frame) parent : (Frame) SwingUtilities.getAncestorOfClass(Frame.class, parent);
-        JDialog dialog = new JDialog(frame, ("MemoPad FontChooser"), true);
+        JDialog dialog = new JDialog(frame, ("TextEditor FontChooser"), true);
         Image icon = Toolkit.getDefaultToolkit().getImage(MemoPad.class.getResource("/images/memoPad.png"));
         dialog.setIconImage(icon);
         Action approveAction = new DialogApproveAction(dialog);
@@ -602,7 +599,7 @@ public class MemoPadFontChooser extends JComponent {
         cancelButton.setText("Cancel");
 
         JPanel buttonsPanel = new JPanel();
-        buttonsPanel.setLayout(new GridLayout(2, 1));
+        buttonsPanel.setLayout(new GridLayout(2, 1, 0, 10));
         buttonsPanel.add(approveButton);
         buttonsPanel.add(cancelButton);
         buttonsPanel.setBorder(BorderFactory.createEmptyBorder(25, 0, 10, 10));
@@ -621,7 +618,8 @@ public class MemoPadFontChooser extends JComponent {
         dialog.getContentPane().add(this, BorderLayout.CENTER);
         dialog.getContentPane().add(dialogEastPanel, BorderLayout.EAST);
         dialog.pack();
-        dialog.setLocationRelativeTo(frame);
+        /*dialog.setLocationRelativeTo(frame);*/
+        dialog.setLocation(500, 200);
         
         return dialog;
     }
@@ -759,11 +757,11 @@ public class MemoPadFontChooser extends JComponent {
             fontStylesNames[i++] = ("Plain");
             fontStylesNames[i++] = ("Bold");
             fontStylesNames[i++] = ("Italic");
-            fontStylesNames[i++] = ("BoldItalic");
+            fontStylesNames[i++] = ("Bold Italic");
         }
         return fontStylesNames;
     }
-}//end of the TextPadFontChooser Class
+}//end of the MemoPadFontChooser Class
 
 
 

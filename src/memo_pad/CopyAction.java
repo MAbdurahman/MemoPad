@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
      MemoPad memoPad;
      /**
       * CopyAction Constructor -
-      * @param ImageIcon
+      * @param icon - the ImageIcon
       */
      @SuppressWarnings("OverridableMethodCallInConstructor")
      public CopyAction(ImageIcon icon) {
@@ -23,7 +23,7 @@ import javax.swing.JOptionPane;
      }//end of the CopyAction Constructor
      /**
       * actionPerformed Method - 
-      * @param ActionEvent -
+      * @param ae - the ActionEvent
       */
      @Override
      public void actionPerformed(ActionEvent ae) {
@@ -39,8 +39,7 @@ import javax.swing.JOptionPane;
 
      }//end of the actionPerformed Method
      /**
-      * updateCopyAction Method - 
-      * @param Void
+      * updateCopyAction Method -
       */
      public void updateCopyAction() {
          if ((MemoPad.TEXTPANE.getSelectionEnd() - MemoPad.TEXTPANE.getSelectionStart()) > 0) {

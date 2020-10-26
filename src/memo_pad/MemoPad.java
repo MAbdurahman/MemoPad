@@ -65,6 +65,7 @@ public class MemoPad extends JFrame {
     private final Font menuFont = new Font("Bookman Old Style", Font.BOLD, 14);
     private final Font menuItemFont = new Font("Bookman Old Style", Font.PLAIN, 14);
 
+
     /** JMenuBar attributes for the textArea */
     private JMenuBar menuBar;
 
@@ -77,6 +78,8 @@ public class MemoPad extends JFrame {
     private JMenuItem pageSetupItem, printItem, previewPrintItem;
     private JMenuItem exitItem;
     private JMenu printerMenu;
+
+    protected boolean hasChanged;
 
     /** MenuItems for the editMenu */
     protected JMenuItem undoItem, redoItem, cutItem, copyItem;
@@ -126,7 +129,7 @@ public class MemoPad extends JFrame {
         super();
         this.setSize(1000, 500);
         this.setLocation(200, 100);
-        this.setTitle("Untitled Document - MemoPad");
+        this.setTitle("Untitled Document - TextEditor");
         this.addWindowListener(new WindowAdapter() {
             /**
              * windowClosing Method - Closes the frame for the NotePad
@@ -155,6 +158,7 @@ public class MemoPad extends JFrame {
         scrollPane.add(TEXTPANE);
         this.add(scrollPane);
         this.setVisible(true);
+        hasChanged = false;
         
         /** The following two lines of code creates and sets a new icon for the frame */
         Image icon = Toolkit.getDefaultToolkit().getImage(MemoPad.class.getResource("/images/memoPad.png"));
@@ -190,8 +194,8 @@ public class MemoPad extends JFrame {
         ImageIcon deleteIcon = new ImageIcon(getClass().getResource("/images/delete.png"));
         ImageIcon exitIcon = new ImageIcon(getClass().getResource("/images/exit.png"));
         ImageIcon findIcon = new ImageIcon(getClass().getResource("/images/find.png"));
-        ImageIcon fontIcon = new ImageIcon(getClass().getResource("/images/font.png"));
-        ImageIcon fontsIcon = new ImageIcon(getClass().getResource("/images/fonts.png"));
+        ImageIcon fontIcon = new ImageIcon(getClass().getResource("/images/fonts.png"));
+        ImageIcon fontsIcon = new ImageIcon(getClass().getResource("/images/font.png"));
         ImageIcon helpIcon = new ImageIcon(getClass().getResource("/images/help.png"));
         ImageIcon italicIcon = new ImageIcon(getClass().getResource("/images/italic.png"));
         ImageIcon lineNumberIcon = new ImageIcon(getClass().getResource("/images/lineNumber.png"));
@@ -251,7 +255,8 @@ public class MemoPad extends JFrame {
             @Override
             public void changedUpdate(DocumentEvent de) {
                TEXTPANE.getDocument().getLength();
-                
+                hasChanged = true;
+
             }//end of the changedUpdate Method
             /**
              * removeUpdate Method -
@@ -259,7 +264,8 @@ public class MemoPad extends JFrame {
              */
             @Override
             public void removeUpdate(DocumentEvent de) {
-                
+                hasChanged = true;
+
             }//end of the removeUpdate Method
             /**
              * insertUpdate Method -
@@ -267,7 +273,8 @@ public class MemoPad extends JFrame {
              */
             @Override
             public void insertUpdate(DocumentEvent de) {
-            
+                hasChanged = true;
+
             }//end of the insertUpdate Method
         });//end of the Anonymous DocumentListener
         
@@ -389,8 +396,8 @@ public class MemoPad extends JFrame {
         undoItem = new JMenuItem(undoAction);
         redoItem = new JMenuItem(redoAction);
         //redoItem = new JMenuItem("Redo", redoIcon);
-        //cutItem = new JMenuItem("Cut", cutIcon);
-        cutItem = new JMenuItem(cutAction);
+        cutItem = new JMenuItem("Cut", cutIcon);
+//        cutItem = new JMenuItem(cutAction);
        // copyItem = new JMenuItem("Copy", copyIcon);
         copyItem = new JMenuItem(copyAction);
         pasteItem = new JMenuItem(new StyledEditorKit.PasteAction());
@@ -583,8 +590,7 @@ public class MemoPad extends JFrame {
         //Create the MenuItem for the helpMenu
         helpItem = new JMenuItem("View Help", helpIcon);
         aboutItem = new JMenuItem("About MemoPad", aboutIcon);
-        
-        
+
         //helpMenu.add(new AboutDialogAction(this, "About", true));
         helpItem.setFont(menuItemFont);
         aboutItem.setFont(menuItemFont);
@@ -901,6 +907,13 @@ public class MemoPad extends JFrame {
     public static JTextPane getTextPane() {
         return  TEXTPANE;
     }//end of the getTextPane Method
+    /**
+     * ActionPerformed Method - implements the ActionListener for the MemoPad
+     */
+    public void ActionPerformed(ActionEvent ae) {
+        String action = ae.getActionCommand();
+
+    }//end of the ActionPerformed Method for ActionListener of MemoPad
       /**
      * main Method - Contains the command line arguments
      * @param args - Sting[] representing the command line arguments

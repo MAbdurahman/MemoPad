@@ -18,7 +18,7 @@ import javax.swing.JOptionPane;
      MemoPad memoPad;
      /**
       * CutAction Constructor -
-      * @param ImageIcon
+      * @param icon - the ImageIcon
       */
      @SuppressWarnings("OverridableMethodCallInConstructor")
      public CutAction(ImageIcon icon) {
@@ -28,7 +28,7 @@ import javax.swing.JOptionPane;
      }//end of the CutAction Constructor
          /**
           * actionPerformed Method -
-          * @param ActionEvent 
+          * @param ae - the ActionEvent
           */
          @Override
          public void actionPerformed(ActionEvent ae) {
@@ -45,7 +45,6 @@ import javax.swing.JOptionPane;
      }//end of the actionPerformed Method
      /**
       * updateCutAction Method -
-      * @param Void
       */
      public void updateCutAction() {
          if ((MemoPad.TEXTPANE.getSelectionEnd() - MemoPad.TEXTPANE.getSelectionStart()) > 0) {

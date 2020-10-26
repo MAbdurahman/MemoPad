@@ -124,6 +124,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
         
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.ipadx = 10;
         
         JLabel findWordLabel = new JLabel("Find What: ");
         findWordLabel.setFont(new Font("Bookman Old Style", Font.PLAIN, 13));
