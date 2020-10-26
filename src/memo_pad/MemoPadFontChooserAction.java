@@ -27,7 +27,7 @@ public class MemoPadFontChooserAction extends StyledEditorKit.StyledTextAction {
     }//end of the MemoPadFontChooserAction Constructor
     /**
      * actionPerformed Method - 
-     * @param ActionEvent -
+     * @param ae - the ActionEvent
      */
     @Override
     public void actionPerformed(ActionEvent ae) {

@@ -619,7 +619,8 @@ public class MemoPadFontChooser extends JComponent {
         dialog.getContentPane().add(dialogEastPanel, BorderLayout.EAST);
         dialog.pack();
         /*dialog.setLocationRelativeTo(frame);*/
-        dialog.setLocation(500, 200);
+//        dialog.setLocation(500, 200);
+        dialog.setLocationRelativeTo(memoPad);
         
         return dialog;
     }

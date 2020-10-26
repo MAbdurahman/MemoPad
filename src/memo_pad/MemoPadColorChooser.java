@@ -41,7 +41,7 @@ public class MemoPadColorChooser extends StyledEditorKit.StyledTextAction {
 
         colorChooser = new JColorChooser();
         colorDialog = new JDialog();
-        colorDialog.setTitle("MemoPad ColorChooser");
+        colorDialog.setTitle("TextEditor ColorChooser");
         Image icon = Toolkit.getDefaultToolkit().getImage(MemoPad.class.getResource("/images/memoPad.png"));
         colorDialog.setIconImage(icon);
         foregroundColor = TEXTPANE.getForeground();
@@ -51,7 +51,7 @@ public class MemoPadColorChooser extends StyledEditorKit.StyledTextAction {
     }//end of the MemoPadColorChooser Constructor
     /**
      * actionPerformed Method -
-     * @param ActionEvent -
+     * @param ae - the ActionEvent
      */
     @Override
     @SuppressWarnings({"UnnecessaryReturnStatement", "null", "Convert2Lambda"})
@@ -79,7 +79,7 @@ public class MemoPadColorChooser extends StyledEditorKit.StyledTextAction {
         approveButton.addActionListener(new ActionListener() {
             /**
              * actionPerformed Method -
-             * @param ActionEvent
+             * @param approveEvent - the ActionEvent
              */
             @Override
             public void actionPerformed(ActionEvent approveEvent) {
@@ -91,7 +91,7 @@ public class MemoPadColorChooser extends StyledEditorKit.StyledTextAction {
         cancelButton.addActionListener(new ActionListener() {
             /**
              * actionPerformed Method -
-             * @param ActionEvent -
+             * @param cancelEvent - the ActionEvent
              */
             @Override
             public void actionPerformed(ActionEvent cancelEvent) {
@@ -109,7 +109,8 @@ public class MemoPadColorChooser extends StyledEditorKit.StyledTextAction {
         colorDialog.getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         colorDialog.setModalityType(Dialog.DEFAULT_MODALITY_TYPE);
         colorDialog.pack();
-        colorDialog.setLocation(325, 250);
+//        colorDialog.setLocation(400, 200);
+        colorDialog.setLocationRelativeTo(textPaneEditor);
         colorDialog.setVisible(true);
 
         if (!hasCancelled) {
