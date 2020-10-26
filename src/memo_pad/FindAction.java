@@ -13,7 +13,7 @@ public class FindAction extends AbstractAction {
     MemoPad memoPad;
  /**
   * FindAction Constructor -
-  * @param ImageIcon -
+  * @param icon - an ImageIcon
   */
  @SuppressWarnings("OverridableMethodCallInConstructor")
  public FindAction(ImageIcon icon) {
@@ -23,7 +23,7 @@ public class FindAction extends AbstractAction {
  }//end of the FindAction Constructor
  /**
   * actionPerformed Method -
-  * @param ActionEvent
+  * @param ae - the ActionEvent listener
   */
  @Override
  @SuppressWarnings("ResultOfObjectAllocationIgnored")
@@ -40,8 +40,7 @@ public class FindAction extends AbstractAction {
 
  }//end of the actionPerformed Method
  /**
-  * updateFindAction Method 
-  * @param Void
+  * updateFindAction Method
   */
  protected void updateFindAction() {
      if (MemoPad.TEXTPANE.getText().length() > 0) {

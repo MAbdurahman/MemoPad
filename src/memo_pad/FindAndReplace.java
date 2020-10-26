@@ -52,8 +52,9 @@ public class FindAndReplace extends JDialog implements ActionListener {
     
     /**
      * FindAndReplace Constructor -
-     * @param JFrame 
-     * @param Boolean
+     * @param owner - the JFrame
+     * @param modal - a Boolean to represent whether this modal is a 'Find and Replace'
+     * or 'Find' modal
      */
     @SuppressWarnings("OverridableMethodCallInConstructor")
     public FindAndReplace(JFrame owner, boolean modal) {
@@ -77,7 +78,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
         addWindowListener(new WindowAdapter() {
             /**
              * windowClosing Method -
-             * @param WindowEvent -
+             * @param we - the WindowEvent
              */
             @Override
             public void windowClosing(WindowEvent we) {
@@ -106,7 +107,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     class WordHighlighter extends DefaultHighlighter.DefaultHighlightPainter {
         /**
          * WordHighlighter Constructor -
-         * @param Color 
+         * @param highlightColor - the Color of the highlight color
          */
         public WordHighlighter(Color highlightColor) {
             super(highlightColor);
@@ -115,7 +116,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the WordHighlighter Class
     /**
      * setupFindPanel Method -
-     * @param JPanel -
+     * @param panel - the JPanel representing the panel
      */
     private void setupFindPanel(JPanel panel) {
         GridBagLayout gridBag = new GridBagLayout();
@@ -148,7 +149,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
         findTextField.addKeyListener(new KeyAdapter() {
             /**
              * keyReleased Method -
-             * @param KeyEvent -
+             * @param ke - the KeyEvent representing whether a key release has occurred in
+             * the input field
              */
             @Override
             public void keyReleased(KeyEvent ke) {
@@ -195,7 +197,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the setFindPanel Method
     /**
      * setupFindAndReplacePanel Method -
-     * @param JPanel
+     * @param panel - the JPanel representing the FindAndReplacePanel
      */
     private void setupFindAndReplacePanel(JPanel panel) {
         GridBagLayout gridBag = new GridBagLayout();
@@ -238,7 +240,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
         findTextField.addKeyListener(new KeyAdapter() {
             /**
              * keyReleased Method
-             * @param KeyEvent -
+             * @param ke - the KeyEvent representing whether a key release event has occurred
+             * in the find input text field
              */
             @Override
             public void keyReleased(KeyEvent ke) {
@@ -251,7 +254,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
         replaceTextField.addKeyListener(new KeyAdapter() {
             /**
              * keyReleased Method -
-             * @param KeyEvent -
+             * @param ke - the KeyEvent representing whether a key release event has occurred in the
+             *           replace input text field
              */
             @Override
             public void keyReleased(KeyEvent ke) {
@@ -306,7 +310,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the setupFindAndReplacePanel Method
     /**
      * addBottomComponents Method - 
-     * @param JPanel
+     * @param panel - the JPanel representing the center panel with its components
      */
     private void addCenterComponents(JPanel panel) {
         JPanel eastPanel = new JPanel();
@@ -354,7 +358,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the addBottomComponents Method
     /**
      * addSouthComponents Method -
-     * @param JPanel 
+     * @param panel - the JPanel representing the panel containing the south components
      */
     private void addSouthComponents(JPanel panel) {
         statusInfoLabel = new JLabel("Status Info: ");
@@ -366,8 +370,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the addSouthComponents Method
     /**
      * findAllWord Method -
-     * @param JTextComponent -
-     * @param Sting -
+     * @param textComponent - the JTextComponent
+     * @param wordToFind - a String representing the word to find
      */
     protected void findAllWord(JTextComponent textComponent, String wordToFind) {
         removeAllHighlights(textComponent);
@@ -389,8 +393,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the findAllWord Method
     /**
      * findNextWord Method -
-     * @param JTextComponent -
-     * @String
+     * @param textComponent - the JTextComponent
+     * @param wordToFind - a String representing the word to find
      */
     protected void findNextWord(JTextComponent textComponent, String wordToFind) {
         removeAllHighlights(textComponent);
@@ -429,8 +433,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
        
     }//end of the findNextWord Method
     /**
-     * removeHighlights Method -
-     * @param JTextComponent -
+     * removeHighlights Method - removes the highlights
+     * @param textComponent - the JTextComponent
      */
     protected void removeAllHighlights(JTextComponent textComponent) {
         Highlighter thisHighlighter = textComponent.getHighlighter();
@@ -446,9 +450,9 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the removeHighlights Method
     /**
      * replaceNextWord Method -
-     * @param JTextComponent
-     * @param String
-     * @param String
+     * @param textComponent - the JTextComponent
+     * @param wordToFind - a String representing the word to find
+     * @param replaceWord - a String representing the word to replace
      */
     protected void replaceNextWord(JTextComponent textComponent, String wordToFind,
                                                                   String replaceWord) {
@@ -503,8 +507,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the replaceNextWord Method
     /**
      * isSearchingDown Method -
-     * @param Void
-     * @return Boolean
+     * @return Boolean - returns true if the checkbox to search down is checked; otherwise it returns
+     * false.
      */
     private boolean isSearchingDown() {
         return (searchDownRadioButton.isSelected());
@@ -512,8 +516,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the isSearchingDown Method
     /**
      * isMatchExactWordSelected Method -
-     * @param Void
-     * @return Boolean
+     * @return Boolean - returns true if the checkbox to match exact word is selected; otherwise it returns
+     * false.
      */
     private boolean isMatchExactWordSelected() {
         return (matchExactWordCheckBox.isSelected());
@@ -521,8 +525,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of isExactWordSelected Method
     /**
      * isCaseSensitiveSelected Method -
-     * @param Void
-     * @return Boolean
+     * @return Boolean - returns true if the is case sensitive check box is selected; otherwise, it returns
+     * false.
      */
     private boolean isCaseSensitiveSelected() {
         return (caseSensitiveCheckBox.isSelected());
@@ -530,10 +534,10 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of isCaseSensitiveSelected Method
     /**
      * checkForExactWord Method -
-     * @param Int -
-     * @param String -
-     * @param Int -
-     * @param Int -
+     * @param wordLength - int representing the word length
+     * @param text - a String representing the text
+     * @param add - int representing add
+     * @param caretPosition - int representing the caretPosition
      */
     private boolean checkForExactWord(int wordLength, String text, int add, int caretPosition) {
         int offsetLeft = (caretPosition + add) - 1;
@@ -549,8 +553,7 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the checkForExactWord Method
     /**
      * getWord Method -
-     * @param Void
-     * @return String
+     * @return String - returns the String representing the word to find
      */
     private String getWordToFind() {
         if (isCaseSensitiveSelected()) {
@@ -561,9 +564,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
         
     }//end of the getWordToFind Method
     /**
-     * getWordToReplace Method 
-     * @param Void
-     * @return String
+     * getWordToReplace Method
+     * @return String - a String representing the word to replace
      */
     private String getWordToReplace() {
         if (isCaseSensitiveSelected()) {
@@ -573,9 +575,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
         return replaceTextField.getText().toLowerCase();
     }//end of the getWordToReplace Method
     /**
-     * getAllText Method -
-     * @param Void
-     * @return String -
+     * getAllText Method - gets all the text if case sensitive check box is selected
+     * @return String - a String representing all the text
      */
     private String getAllText() {
         if (isCaseSensitiveSelected()) {
@@ -586,12 +587,11 @@ public class FindAndReplace extends JDialog implements ActionListener {
         
     }//end of the getAllText Method
     /**
-     * replaceAll Method - 
-     * @param Void
+     * replaceAll Method -
      */
     private void replaceAll() {
         String findWord = findTextField.getText();
-        //String text = TextPad.getTextPane().getText();
+
         String text = getAllText();
         String replaceWord = replaceTextField.getText();
         @SuppressWarnings("StringBufferMayBeStringBuilder")
@@ -618,7 +618,6 @@ public class FindAndReplace extends JDialog implements ActionListener {
     
     /**
      * updateProcess Method -
-     * @param Void
      */
     private void updateProcess() {
         if (isReplace) {
@@ -640,8 +639,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the updateProcess Method
     /**
      * displayEndResult Method -
-     * @param Int -
-     * @param Boolean
+     * @param foundWords - int representing the number of found words
+     * @param isReplaceAll - a boolean representing if isReplaceAll has been clicked
      */
     private void displayEndResult(int foundWords, boolean isReplaceAll) {
         String message = "";
@@ -681,7 +680,8 @@ public class FindAndReplace extends JDialog implements ActionListener {
     }//end of the displayEndResult Method
     /**
      * actionPerformed Method -
-     * @param ActionEvent -
+     * @param ae - the ActionEvent event of whether the findTextField or replaceTextField or find next
+     * or find all or cancel or replace next of replace all has been clicked
      */
     @Override
     public void actionPerformed(ActionEvent ae) {
