@@ -85,6 +85,7 @@ public class MemoPad extends JFrame {
 
     /** MenuItems for the viewMenu */
     protected JCheckBoxMenuItem rulerCheckboxItem;
+    protected JCheckBoxMenuItem lineNumberCheckboxItem;
     protected JCheckBoxMenuItem statusBarCheckboxItem;
     protected JCheckBoxMenuItem wordWrapCheckboxItem;
 
@@ -193,6 +194,7 @@ public class MemoPad extends JFrame {
         ImageIcon fontsIcon = new ImageIcon(getClass().getResource("/images/fonts.png"));
         ImageIcon helpIcon = new ImageIcon(getClass().getResource("/images/help.png"));
         ImageIcon italicIcon = new ImageIcon(getClass().getResource("/images/italic.png"));
+        ImageIcon lineNumberIcon = new ImageIcon(getClass().getResource("/images/lineNumber.png"));
         ImageIcon moreColorsIcon = new ImageIcon(getClass().getResource("/images/moreColors.png"));
         ImageIcon newFileIcon = new ImageIcon(getClass().getResource("/images/newFile.png"));
         ImageIcon openFileIcon = new ImageIcon(getClass().getResource("/images/openFile.png"));
@@ -442,14 +444,18 @@ public class MemoPad extends JFrame {
 
         /** Create the CheckboxMenuItems for the viewMenu */
         rulerCheckboxItem = new JCheckBoxMenuItem("Ruler", rulerIcon);
+        lineNumberCheckboxItem = new JCheckBoxMenuItem("Line Numbers", lineNumberIcon);
         statusBarCheckboxItem = new JCheckBoxMenuItem("Status Bar", statusBarIcon);
         wordWrapCheckboxItem = new JCheckBoxMenuItem("Word Wrap", wordWrapIcon);
         
         rulerCheckboxItem.setFont(menuItemFont);
+        lineNumberCheckboxItem.setFont(menuItemFont);
         statusBarCheckboxItem.setFont(menuItemFont);
         wordWrapCheckboxItem.setFont(menuItemFont);
 
         viewMenu.add(rulerCheckboxItem);
+        viewMenu.addSeparator();
+        viewMenu.add(lineNumberCheckboxItem);
         viewMenu.addSeparator();
         viewMenu.add(statusBarCheckboxItem);
         viewMenu.addSeparator();
