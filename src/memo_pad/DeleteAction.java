@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
       
      /**
       * DeleteAction Constructor -
-      * @param ImageIcon -
+      * @param icon - the ImageIcon
       */
      @SuppressWarnings("OverridableMethodCallInConstructor")
      public DeleteAction(ImageIcon icon) {
@@ -30,7 +30,7 @@ import javax.swing.JOptionPane;
      }//end of the DeleteAction Constructor
      /**
       * actionPerformed Method -
-      * @param ActionEvent 
+      * @param ae - the ActionEvent
       */
      @Override
      public void actionPerformed(ActionEvent ae) {
@@ -47,7 +47,6 @@ import javax.swing.JOptionPane;
      }//end of the actionPerformed Method
      /**
       * updateDeleteAction Method -
-      * @param Void
       */
      protected void updateDeleteAction() {
          if ((MemoPad.TEXTPANE.getSelectionEnd() - MemoPad.TEXTPANE.getSelectionStart()) > 0) {

@@ -129,7 +129,7 @@ public class MemoPad extends JFrame {
         this.addWindowListener(new WindowAdapter() {
             /**
              * windowClosing Method - Closes the frame for the NotePad
-             * @param WindowEvent - the event of closing the frame
+             * @param we - the WindowEvent of closing the frame
              */
             @Override
             public void windowClosing(WindowEvent we) {
@@ -144,7 +144,6 @@ public class MemoPad extends JFrame {
 
     /**
      * initComponents Method - Initializes the components for the MemoPad
-     * @param Void
      */
     @SuppressWarnings("Convert2Lambda")
     private void initComponents() {
@@ -230,7 +229,7 @@ public class MemoPad extends JFrame {
         TEXTPANE.getStyledDocument().addUndoableEditListener(new UndoableEditListener() {
             /**
              * undoableEditHappened Method -
-             * @param UndoableEditEvent -
+             * @param ue - the UndoableEditEvent
              */
             @Override
             public void undoableEditHappened(UndoableEditEvent ue) {
@@ -245,7 +244,7 @@ public class MemoPad extends JFrame {
         TEXTPANE.getStyledDocument().addDocumentListener(new DocumentListener() {
             /**
              * changedUpdate Method - 
-             * @param DocumentEvent
+             * @param de - the DocumentEvent
              */
             @Override
             public void changedUpdate(DocumentEvent de) {
@@ -254,7 +253,7 @@ public class MemoPad extends JFrame {
             }//end of the changedUpdate Method
             /**
              * removeUpdate Method -
-             * @param DocumentEvent -
+             * @param de - the DocumentEvent
              */
             @Override
             public void removeUpdate(DocumentEvent de) {
@@ -262,7 +261,7 @@ public class MemoPad extends JFrame {
             }//end of the removeUpdate Method
             /**
              * insertUpdate Method -
-             * @param DocumentEvent  
+             * @param de - the DocumentEvent
              */
             @Override
             public void insertUpdate(DocumentEvent de) {
@@ -273,7 +272,7 @@ public class MemoPad extends JFrame {
         TEXTPANE.addCaretListener(new CaretListener() {
             /**
              * caretUpdate Method -
-             * @param CaretEvent -
+             * @param ce - the CaretEvent
              */
             @Override
             public void caretUpdate(CaretEvent ce) {
@@ -338,7 +337,7 @@ public class MemoPad extends JFrame {
         pageSetupItem.addActionListener(new ActionListener() {
             /**
              * actionPerformed Method -
-             * @param ActionEvent 
+             * @param ae - the ActionEvent
              */
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -353,7 +352,7 @@ public class MemoPad extends JFrame {
         printItem.addActionListener(new ActionListener() {
            /**
             * actionPerformed Method -
-            * @param ActionEvent
+            * @param ae - the ActionEvent
             */ 
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -608,9 +607,9 @@ public class MemoPad extends JFrame {
 
         /**
          * AboutDialog Constructor -
-         * @param JFrame - the parent frame
-         * @param String - the title
-         * @param Boolean - the modal
+         * @param frame - the JFrame representing the parent frame
+         * @param title - the String representing the title
+         * @param modal - a Boolean representing the modal
          */
         @SuppressWarnings({"OverridableMethodCallInConstructor", "LeakingThisInConstructor"})
         public AboutDialog(JFrame frame, String title, Boolean modal) {
@@ -644,7 +643,7 @@ public class MemoPad extends JFrame {
             addWindowListener(new WindowAdapter() {
                 /**
                  * windowClosing Method -
-                 * @param WindowEvent -
+                 * @param we - the WindowEvent
                  */
                 @Override
                 public void windowClosing(WindowEvent we) {
@@ -670,7 +669,7 @@ public class MemoPad extends JFrame {
         }//end of the AboutDialog Constructor
         /**
          * actionPerformed Method - 
-         * @param ActionEvent -
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -693,9 +692,9 @@ public class MemoPad extends JFrame {
 
         /**
          * HelpDialog Constructor -
-         * @param JFrame - the parent frame
-         * @param String - the title
-         * @param Boolean - the modal
+         * @param frame - the JFrame representing the parent frame
+         * @param title - the String representing the title
+         * @param modal - a Boolean representing the modal
          */
         @SuppressWarnings({"OverridableMethodCallInConstructor", "LeakingThisInConstructor"})
         public HelpDialog(JFrame frame, String title, Boolean modal) {
@@ -726,7 +725,7 @@ public class MemoPad extends JFrame {
             addWindowListener(new WindowAdapter() {
                 /**
                  * windowClosing Method -
-                 * @param WindowEvent -
+                 * @param we - the WindowEvent
                  */
                 @Override
                 public void windowClosing(WindowEvent we) {
@@ -748,7 +747,7 @@ public class MemoPad extends JFrame {
         }//end of the HelpDialog Constructor
         /**
          * actionPerformed Method - 
-         * @param ActionEvent -
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -763,17 +762,13 @@ public class MemoPad extends JFrame {
         }//end of the actionPerformed Method
     }//end of the HelpDialog Class
 
-
-
-
-      
     /**
      * UndoAction Class
      */
     class UndoAction extends AbstractAction {
         /**
          * UndoAction Constructor -
-         * @param ImageIcon -
+         * @param icon - ImageIcon
          */
         @SuppressWarnings("OverridableMethodCallInConstructor")
         public UndoAction(ImageIcon icon) {
@@ -783,7 +778,7 @@ public class MemoPad extends JFrame {
         }//end of the UndoAction Constructor
         /**
          * actionPerformed Method -
-         * @param ActionEvent -
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -800,8 +795,7 @@ public class MemoPad extends JFrame {
             
         }//end of the actionPerformed Method
         /**
-         * updateUndoAction Method - 
-         * @param Void
+         * updateUndoAction Method -
          */
         protected void updateUndoAction() {
             if (undoManager.canUndo()) {
@@ -841,7 +835,7 @@ public class MemoPad extends JFrame {
     class RedoAction extends AbstractAction {
         /**
          * RedoAction Constructor -
-         * @param ImageIcon
+         * @param icon - the ImageIcon
          */
         @SuppressWarnings("OverridableMethodCallInConstructor")
         public RedoAction(ImageIcon icon) {
@@ -851,7 +845,7 @@ public class MemoPad extends JFrame {
         }//end of the RedoAction Constructor
         /**
          * actionPerformed Method - 
-         * @param ActionEvent -
+         * @param ae - the ActionEvent
          */
         @Override
         public void actionPerformed(ActionEvent ae) {
@@ -869,7 +863,6 @@ public class MemoPad extends JFrame {
         }//end of the actionPerformed Method
         /**
          * updateRedoAction Method -
-         * @param Void
          */
         protected void updateRedoAction() {
             if (undoManager.canRedo()) {
@@ -896,8 +889,7 @@ public class MemoPad extends JFrame {
         }//end of the updateRedoAction Method
     }//end of the RedoAction Class
     /**
-     * getTextPane Method - 
-     * @param Void
+     * getTextPane Method -
      * @return JTextPane
      */
     public static JTextPane getTextPane() {
@@ -905,14 +897,13 @@ public class MemoPad extends JFrame {
     }//end of the getTextPane Method
       /**
      * main Method - Contains the command line arguments
-     * @param String[] - the command line arguments
+     * @param args - Sting[] representing the command line arguments
      */
     @SuppressWarnings("Convert2Lambda")
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             /**
              * run Method -
-             * @param Void
              */
             @Override
             public void run() {
